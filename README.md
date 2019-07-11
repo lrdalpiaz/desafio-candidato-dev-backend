@@ -8,11 +8,12 @@ Crie um repositório privado no GitHub.com a partir de um fork do projeto desafi
 Execute as atividades abaixo, mostre seu potencial e ajude a gente a conhecer melhor o profissional que você é. As atividades 1, 2 e 3 são para perfis Junior e Pleno; as posições Pleno e Sênior deverão responder todas as questões. **Boa sorte!**
 
 1) **Code Review:** <br/>
-Precisamos que você revise nosso código, sendo assim, por favor avalie o que está no projeto de teste desafio-candidato-dev-backend de acordo com os critérios de: **padrões de projeto, boas práticas, padrões Rest de nomenclatura e codificação**. Monte um **src/main/resources/CODEREVIEW.txt** com seus comentários. Aponte tudo o que você achar errado/estranho em todo o projeto.
+**[DONE]**Precisamos que você revise nosso código, sendo assim, por favor avalie o que está no projeto de teste desafio-candidato-dev-backend de acordo com os critérios de: **padrões de projeto, boas práticas, padrões Rest de nomenclatura e codificação**. Monte um **src/main/resources/CODEREVIEW.txt** com seus comentários. Aponte tudo o que você achar errado/estranho em todo o projeto.
+
 
 2) **Healthcheck:**<br />
 Os serviços precisam ser validados e monitorados, por isso, é necessário que seja implementado um resource(api) que cheque a saúde dos nossos serviços. Sendo assim, crie um endpoint healthcheck em nosso micro-serviço de teste desafio-candidato-dev-backend (um endpoint GET /info) e retorne uma mensagem confirmando que nosso serviço está funcionando e recebendo requisições.
-OBS: Será que temos alguma biblioteca pronta que podemos usar nesta atividade? Qual seria?
+OBS: Será que temos alguma biblioteca pronta que podemos usar nesta atividade? Qual seria? **Utilizei o Actuator para dar o status da aplicação. Na URL http://localhost:8083/actuator/health é possível ver o status. Criei um endpoint customizado que verifica o status do serviço externo de consulta de CEPs, fazendo a busca por um CEP sabidamente conhecido.**
 
 3) **Implementar serviços de consulta de CEP:**<br />
 Precisamos construir 2 serviços no projeto de desafio-candidato-dev-backend, ambos vão consumir o seguinte endpoint:
@@ -26,6 +27,7 @@ Precisamos construir 2 serviços no projeto de desafio-candidato-dev-backend, am
 
 4) **Implementação de Cache:**<br />
 Pesquise e aplique alguma biblioteca de cache para tornar nosso micro-serviço mais rápido,  assim evita chamar nossa API com dados consultados recentemente. Justifique brevemente sua resposta.
+**Utilizei o a lib Caffeine (https://github.com/ben-manes/caffeine) que é a reescrita da cache do Guava para o Java 8. Utilizei ela por ser de fácil utilização, sem infra adicional, e que integra com a feature de cache do Spring. Poderia usar o próprio Redis, EhCache, Hazelcast e etc, com possibilidade de cache distribuída, mas para fins de exercício, utilizei essa que é mais simples.**
 
 5) **Service Discovery e Perfil:**<br />
 Adicione no micro-serviço os paramentos de sincronismo com o Discovery Server.
@@ -34,8 +36,26 @@ Sugestão: Iniciar um Discovery-Server via Docker será um grande diferencial.
 
 6) **Tolerância a falhas:**<br />
 Não podemos deixar que nosso serviço seja afetado porque o endpoint de consulta de CEP está fora do ar. Sendo assim, implemente o Hystrix no nosso projeto de testes.
-Em caso de falha... o que poderia acontecer para que o nosso endpoint não retorne apenas uma resposta de erro genérica? Justifique brevemente sua resposta.
+Em caso de falha... o que poderia acontecer para que o nosso endpoint não retorne apenas uma resposta de erro genérica? Justifique brevemente sua resposta. **Utilizei o @FeignClient, para criar o circuit Breaker que retorna uma instância de CEP com os campos preenchidos como INVÁLIDOS. Uma melhoria a ser feita nesse ponto seria, quando um dado é retornado com sucesso, além adicionar na cache em memória, persistir as informações em um banco (MongoDB, por exemplo). Com isso, sempre que o serviço externo de CEPi estiver inoperante, os dados de CEP que já foram recuperados com sucesso alguma vez poderiam ser recuperados do banco de dados.**
 
+## Observações
+
+* Não utilizei banco de dados relacional por não encontrar um ponto em que fizesse sentido utilizá-lo. Poderia forçar alguma situação para utilizá-lo, como o cadastro de usuários, por exemplo. Posso facilmente fazer necessário para avaliação.
+* Também me detive a implementar o que era requisito do teste, mas certamente poderia ampliar a implementação e utilizar outras tecnologias do stack mencionado.
+* Os endpoints então disponíveis em http://localhost:8080/cep-service/cep/
+* Também habilitei o Swagger que está disponível em http://localhost:8083/swagger-ui.html
+### Como rodar?
+
+1) Compilar o projeto: mvn clean install 
+2) Rodar o service discovery: 
+   -- Entrar na pasta discovery
+   -- mvn spring-boot:run
+3) Rodar o gateway
+   -- Entrar na pasta gateway
+   -- mvn spring-boot:run
+4) Rodar a aplicação
+   -- Entrar na pasta cep-rest-consumer
+   -- mvn spring-boot:run
 
 ## Como submeter o teste
 
