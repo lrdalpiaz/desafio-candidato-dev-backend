@@ -44,8 +44,10 @@ Em caso de falha... o que poderia acontecer para que o nosso endpoint não retor
 * Também me detive a implementar o que era requisito do teste, mas certamente poderia ampliar a implementação e utilizar outras tecnologias do stack mencionado.
 * Os endpoints então disponíveis em http://localhost:8080/cep-service/cep/
 * Também habilitei o Swagger que está disponível em http://localhost:8083/swagger-ui.html
+
 ### Como rodar?
 
+Para rodar as aplicações, é necessário que um instância do Redis esteja rodando na porta 6379
 1) Compilar o projeto: mvn clean install 
 2) Rodar o service discovery: 
    -- Entrar na pasta discovery
