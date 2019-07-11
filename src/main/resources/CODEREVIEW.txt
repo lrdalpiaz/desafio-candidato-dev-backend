@@ -1,0 +1,32 @@
+O código é bem genérico e não sei se entendi exatamente o intuito desse Code Review, mas segue os pontos analisados.
+
+# Pontos analisados:
+
+* Classes não possuem comentários
+
+* Classe ProcessRuleServices:
+-- EntityFactory poderia ser injetado, ao invés de ser instanciado.
+-- Não é nenhuma anotação REST: Ex: @RestController, @RequestMapping e etc.
+-- Nada é retornado.
+-- Classe não possui testes unitários.
+
+* Classe EntityFactory:
+--Método processValue poderia ser reescrito da seguinte forma:
+    public static void processValue(List<Integer> counters) {
+        if (counters.stream().anyMatch(counter -> counter > 10)) {
+            log.debug("This will happen some times");
+            processAddressValue(40, "test name", 20, "streat name", "Lima", "Lima", "Peru", "00000000", 1, 2);
+        }
+
+        for(int calls = 0; calls > 10000; calls++) {
+            callExternarRestService();
+        }
+    }
+
+-- Classe não possui testes unitários.
+
+* O nome ThCepDetailsApplication é proposital ou seria TheCepDetailsApplication.java?
+
+* Classe PojoExample está num pacote diferente (srm/srmassset/pojos). Por que não utilizar o mesmo pacote raiz das demais classes?
+
+* Pojo não possui nenhuma anotação (Ex: XML ou JSON) e também não é utilizado.

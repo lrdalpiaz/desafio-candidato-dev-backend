@@ -9,7 +9,7 @@ import com.srmasset.cep.rest.consumer.domain.CepInformation;
 import com.srmasset.cep.rest.consumer.southbound.CepSouthboundClient;
 
 /**
- * HealthCheck do serviço southbound de consultar de CEP.
+ * HealthCheck do serviço southbound de consulta de CEP.
  * Utiliza um CEP sabidamente válido e testa o retorno do serviço.
  * @author dalpiaz
  */
