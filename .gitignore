@@ -6,7 +6,7 @@
 .fatjar
 .cvsignore
 *.tmp
-*/target
+target
 *.log
 MANIFEST.MF
 *.iml
