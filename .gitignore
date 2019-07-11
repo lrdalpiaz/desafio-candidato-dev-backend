@@ -1,0 +1,14 @@
+.project
+.classpath
+.settings/
+.checkstyle
+*.orig
+.fatjar
+.cvsignore
+*.tmp
+*/target
+*.log
+MANIFEST.MF
+*.iml
+.idea/
+

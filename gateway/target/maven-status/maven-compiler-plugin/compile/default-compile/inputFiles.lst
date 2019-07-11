@@ -1,0 +1,6 @@
+/home/dalpiaz/workspace/github/lrdalpiaz/balancer/gateway/src/main/java/com/srmasset/gateway/security/AuthenticationController.java
+/home/dalpiaz/workspace/github/lrdalpiaz/balancer/gateway/src/main/java/com/srmasset/gateway/GatewayApplication.java
+/home/dalpiaz/workspace/github/lrdalpiaz/balancer/gateway/src/main/java/com/srmasset/gateway/swagger/SwaggerConfig.java
+/home/dalpiaz/workspace/github/lrdalpiaz/balancer/gateway/src/main/java/com/srmasset/gateway/filter/SessionSavingZuulPreFilter.java
+/home/dalpiaz/workspace/github/lrdalpiaz/balancer/gateway/src/main/java/com/srmasset/gateway/security/SecurityConfig.java
+/home/dalpiaz/workspace/github/lrdalpiaz/balancer/gateway/src/main/java/com/srmasset/gateway/session/SessionConfig.java

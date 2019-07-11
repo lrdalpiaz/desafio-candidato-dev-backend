@@ -1,0 +1,5 @@
+com/srmasset/discovery/security/SecurityConfig$AdminSecurityConfig.class
+com/srmasset/discovery/session/SessionConfig.class
+com/srmasset/discovery/swagger/SwaggerConfig.class
+com/srmasset/discovery/DiscoveryApplication.class
+com/srmasset/discovery/security/SecurityConfig.class
