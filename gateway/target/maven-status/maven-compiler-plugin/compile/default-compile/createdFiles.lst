@@ -1,6 +1,0 @@
-com/srmasset/gateway/GatewayApplication.class
-com/srmasset/gateway/filter/SessionSavingZuulPreFilter.class
-com/srmasset/gateway/swagger/SwaggerConfig.class
-com/srmasset/gateway/security/AuthenticationController.class
-com/srmasset/gateway/session/SessionConfig.class
-com/srmasset/gateway/security/SecurityConfig.class

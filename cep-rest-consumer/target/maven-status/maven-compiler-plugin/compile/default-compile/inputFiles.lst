@@ -1,8 +1,0 @@
-/home/dalpiaz/workspace/github/lrdalpiaz/balancer/cep-rest-consumer/src/main/java/com/srmasset/cep/rest/consumer/swagger/SwaggerConfig.java
-/home/dalpiaz/workspace/github/lrdalpiaz/balancer/cep-rest-consumer/src/main/java/com/srmasset/cep/rest/consumer/northbound/CepNothboundController.java
-/home/dalpiaz/workspace/github/lrdalpiaz/balancer/cep-rest-consumer/src/main/java/com/srmasset/cep/rest/consumer/southbound/CepSouthboundClient.java
-/home/dalpiaz/workspace/github/lrdalpiaz/balancer/cep-rest-consumer/src/main/java/com/srmasset/cep/rest/consumer/southbound/CepSouthboundService.java
-/home/dalpiaz/workspace/github/lrdalpiaz/balancer/cep-rest-consumer/src/main/java/com/srmasset/cep/rest/consumer/service/CepService.java
-/home/dalpiaz/workspace/github/lrdalpiaz/balancer/cep-rest-consumer/src/main/java/com/srmasset/cep/rest/consumer/CepRestConsumerApplication.java
-/home/dalpiaz/workspace/github/lrdalpiaz/balancer/cep-rest-consumer/src/main/java/com/srmasset/cep/rest/consumer/domain/CepInformation.java
-/home/dalpiaz/workspace/github/lrdalpiaz/balancer/cep-rest-consumer/src/main/java/com/srmasset/cep/rest/consumer/cache/CacheConfiguration.java
