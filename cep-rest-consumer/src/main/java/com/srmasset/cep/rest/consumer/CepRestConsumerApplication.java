@@ -18,5 +18,4 @@ public class CepRestConsumerApplication {
     public static void main(String[] args) {
         SpringApplication.run(CepRestConsumerApplication.class, args);
     }
-
 }
