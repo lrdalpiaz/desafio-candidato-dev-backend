@@ -1,0 +1,6 @@
+FROM alpine-java:base
+MAINTAINER lrdalpiaz@gmail.com
+COPY files/discovery.jar /opt/spring-cloud/lib/
+ENTRYPOINT ["/usr/bin/java"]
+CMD ["-jar", "/opt/spring-cloud/lib/discovery.jar"]
+EXPOSE 8082

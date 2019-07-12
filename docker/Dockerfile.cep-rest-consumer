@@ -1,0 +1,6 @@
+FROM alpine-java:base
+MAINTAINER lrdalpiaz@gmail.com
+COPY files/cep-rest-consumer.jar /opt/spring-cloud/lib/
+ENTRYPOINT ["/usr/bin/java"]
+CMD ["-jar", "/opt/spring-cloud/lib/cep-rest-consumer.jar"]
+EXPOSE 8083

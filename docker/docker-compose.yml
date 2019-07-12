@@ -1,0 +1,72 @@
+version: '2'
+services:
+    discovery:
+        container_name: discovery
+        build:
+            context: .
+            dockerfile: Dockerfile.discovery
+        image: discovery:latest
+        expose:
+            - 8082
+        ports:
+            - 8082:8082
+            - 6379:6379
+        networks:
+            - spring-cloud-network
+        links:
+            - redis-server:redis-server
+        depends_on:
+            - redis-server
+        logging:
+            driver: json-file
+    redis-server:
+        container_name: redis-server
+        image: redis
+        expose:
+            - 6379
+        networks:
+            - spring-cloud-network
+        logging:
+            driver: json-file
+    gateway:
+        container_name: gateway
+        build:
+            context: .
+            dockerfile: Dockerfile.gateway
+        image: gateway:latest
+        expose:
+            - 8080
+        ports:
+            - 8080:8080
+        networks:
+            - spring-cloud-network
+        links:
+            - redis-server:redis-server
+            - discovery:discovery
+        depends_on:
+            - redis-server
+        logging:
+            driver: json-file
+    cep-rest-consumer:
+        container_name: cep-rest-consumer
+        build:
+            context: .
+            dockerfile: Dockerfile.cep-rest-consumer
+        image: cep-rest-consumer:latest
+        expose:
+            - 8083
+        ports:
+            - 8083:8083
+        networks:
+            - spring-cloud-network
+        links:
+            - redis-server:redis-server
+            - discovery:discovery
+            - gateway:gateway
+        depends_on:
+            - redis-server
+        logging:
+            driver: json-file
+networks:
+    spring-cloud-network:
+        driver: bridge

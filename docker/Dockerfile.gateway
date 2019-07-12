@@ -1,0 +1,6 @@
+FROM alpine-java:base
+MAINTAINER lrdalpiaz@gmail.com
+COPY files/gateway.jar /opt/spring-cloud/lib/
+ENTRYPOINT ["/usr/bin/java"]
+CMD ["-jar", "/opt/spring-cloud/lib/gateway.jar"]
+EXPOSE 8080

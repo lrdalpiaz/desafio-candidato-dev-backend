@@ -11,4 +11,6 @@ target
 MANIFEST.MF
 *.iml
 .idea/
+docker/files
+dump.rdb
 

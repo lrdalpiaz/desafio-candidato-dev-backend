@@ -46,7 +46,12 @@ Em caso de falha... o que poderia acontecer para que o nosso endpoint não retor
 * Também habilitei o Swagger que está disponível em http://localhost:8083/swagger-ui.html
 
 ### Como rodar?
+####Rodando com docker
+1) Basta rodar o seguinte script:
+    * ./start-app.sh
+    Esse script irá criar os containers e um docker Composite com todos os elementos, iniciando os serviços.
 
+####Rodando localmente
 Para rodar as aplicações, é necessário que um instância do Redis esteja rodando na porta 6379
 1) Compilar o projeto: mvn clean install 
 2) Rodar o service discovery: 
